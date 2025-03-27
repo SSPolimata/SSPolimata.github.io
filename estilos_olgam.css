@@ -1,0 +1,106 @@
+@keyframes a {
+  to {
+    background-position: 0 -200%;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%) translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) translateY(-50%);
+    opacity: 1;
+  }
+}
+
+:root {
+  --rainbow: linear-gradient(
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 154, 0, 1) 10%,
+    rgba(208, 222, 33, 1) 20%,
+    rgba(79, 220, 74, 1) 30%,
+    rgba(63, 218, 216, 1) 40%,
+    rgba(47, 201, 226, 1) 50%,
+    rgba(28, 127, 238, 1) 60%,
+    rgba(95, 21, 242, 1) 70%,
+    rgba(186, 12, 248, 1) 80%,
+    rgba(251, 7, 217, 1) 90%,
+    rgba(255, 0, 0, 1) 100%
+  );
+}
+
+/* Estilos del botón del launcher */
+.vfrc-launcher, ._1q15b0b0 {
+  position: relative;
+  top: -50px;
+  background: #000000;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* Indicador verde de disponibilidad */
+.f6dof80::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #4af20a;
+  border: 2px solid white;
+}
+
+/* Tooltip con mensaje */
+.vfrc-launcher::after, ._1q15b0b0::after {
+  content: "Chat with us 👋";
+  display: block;
+  position: absolute;
+  right: -180px; /* Ajuste de posición */
+  top: 50%;
+  transform: translateX(-100%) translateY(-50%);
+  opacity: 0;
+  background-color: white;
+  border-radius: 15px;
+  padding: 8px 20px;
+  font-size: 17px;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  animation: slideInFromLeft 0.5s ease-out 5s forwards;
+}
+
+/* Animación al pasar el cursor */
+@keyframes jiggle {
+  0%, 100% {
+    transform: translateX(0) scale(1);
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateX(-5px) scale(1.05);
+    transform: translateY(-5px) scale(1.05);
+  }
+  75% {
+    transform: translateX(5px) scale(0.95);
+    transform: translateY(5px) scale(0.95);
+  }
+}
+
+.vfrc-launcher:hover, ._1q15b0b0:hover {
+  background: #000000;
+  animation: jiggle 0.5s ease-in-out infinite;
+}
+
+/* Cambio de estilo en hover */
+.vfrc-launcher:hover::after, ._1q15b0b0:hover::after {
+  background-color: #f7f7f7;
+  color: #555;
+}
