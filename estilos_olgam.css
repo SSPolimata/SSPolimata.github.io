@@ -1,130 +1,88 @@
-/* ANIMACIONES */
+/* ANIMACIONES MEJORADAS */
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%) translateY(-50%);
     opacity: 0;
   }
   100% {
-    transform: translateX(0) translateY(-50%);
+    transform: translateX(-115%) translateY(-50%);
     opacity: 1;
   }
 }
 
 @keyframes jiggle {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    transform: translate(-5px, -5px) scale(1.05);
-  }
-  75% {
-    transform: translate(5px, 5px) scale(0.95);
-  }
+  0%, 100% { transform: translate(0,0) scale(1); }
+  25% { transform: translate(-3px,-3px) rotate(-3deg) scale(1.05); }
+  75% { transform: translate(3px,3px) rotate(3deg) scale(0.97); }
 }
 
-/* ESTILOS PRINCIPALES */
+/* CONTENEDOR PRINCIPAL */
 ._1wkq7nf9 {
   position: relative !important;
   overflow: visible !important;
+  transform: none !important;
 }
 
-/* Botón principal negro */
+/* BOTÓN NEGRO CON PUNTO VERDE */
 .f6dof81 .f6dof86 {
-  background: #000000 !important;
+  background: #000 !important;
   border-radius: 50% !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25) !important;
-  transition: transform 0.3s ease !important;
+  transform: scale(1);
+  transition: all 0.3s ease !important;
 }
 
-/* Círculo verde de estado */
+/* PUNTO VERDE DE ESTADO */
 ._1wkq7nf9:after {
   content: '';
-  display: block !important;
   position: absolute !important;
-  bottom: 5px !important;
-  right: 5px !important;
+  bottom: 8px !important;
+  right: 8px !important;
   width: 12px !important;
   height: 12px !important;
   border-radius: 50% !important;
   background: #4af20a !important;
-  border: 2px solid #ffffff !important;
+  border: 2px solid #fff !important;
   z-index: 1000 !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
 }
 
-/* Tooltip "Chat with us" */
+/* TOOLTIP EXTERNO "CHAT WITH US" */
 .f6dof81::after {
   content: "Chat with us" !important;
-  position: absolute !important;
-  right: -165px !important;
+  position: fixed !important; /* Cambiado a fixed para posición absoluta */
+  right: calc(100% + 20px) !important; /* Posiciona a la izquierda del botón */
   top: 50% !important;
   transform: translateY(-50%) !important;
   opacity: 0 !important;
-  background: #ffffff !important;
+  background: #fff !important;
   border-radius: 25px !important;
   padding: 10px 25px !important;
   font-size: 14px !important;
   color: #1a1a1a !important;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
-  white-space: nowrap !important;
-  font-family: 'Open Sans', Arial, sans-serif !important;
+  font-family: 'Open Sans', sans-serif !important;
   font-weight: 600 !important;
-  animation: slideInFromLeft 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 5s forwards !important;
+  animation: slideInFromLeft 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28) 5s forwards !important;
   pointer-events: none !important;
   z-index: 9999 !important;
+  white-space: nowrap !important;
+  width: max-content !important;
 }
 
-/* Animación al hacer hover */
+/* HOVER EFFECTS */
 .f6dof81:hover {
   animation: jiggle 0.5s ease-in-out infinite !important;
-  transform: scale(1.05) !important;
+  transform: scale(1.03) !important;
 }
 
 .f6dof81:hover::after {
   background: #f8f8f8 !important;
-  color: #000000 !important;
+  color: #000 !important;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.25) !important;
 }
 
-/* Asegurar visibilidad inicial */
-.vfrc-widget--launcher, .vfrc-launcher {
+/* ASEGURAR VISIBILIDAD */
+.vfrc-widget--launcher {
   overflow: visible !important;
-}
-
-/* Chat container */
-._1wkq7nf3._1wkq7nf6 {
-  border-radius: 20px !important;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
-  overflow: hidden !important;
-}
-
-/* Header del chat */
-.vfrc-header.jyiuei2 {
-  background: #4551ED !important;
-  padding: 18px 20px !important;
-}
-
-.vfrc-header--title.jyiuei4 {
-  color: #ffffff !important;
-  font-size: 1.2rem !important;
-  letter-spacing: -0.3px !important;
-}
-
-/* Input de mensaje */
-.vfrc-chat-input._1gdvh9t6 {
-  border-radius: 12px !important;
-  padding: 14px 20px !important;
-  font-size: 15px !important;
-  border: 1px solid #e2e8f0 !important;
-}
-
-/* Botón de enviar */
-#vfrc-send-message {
-  background: #4551ED !important;
-  border-radius: 10px !important;
-  padding: 12px !important;
-  transition: all 0.2s ease !important;
-}
-
-#vfrc-send-message:hover {
-  background: #3743db !important;
-  transform: scale(0.96) !important;
+  transform: none !important;
 }
