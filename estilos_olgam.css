@@ -42,10 +42,10 @@
   transform: translateY(-50%);
   background: #fff;
   color: #000;
-  padding: 10px 16px;           /* Padding normal */
+  padding: 16px 20px;           /* Padding normal */
   min-width: 160px;             /* Fuerza ancho amplio tipo burbuja */
   text-align: center;           /* Centra el texto dentro */
-  border-radius: 20px;
+  border-radius: 26px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   font-family: sans-serif;
   font-size: 14px;
