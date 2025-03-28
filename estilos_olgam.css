@@ -17,7 +17,7 @@
 /* Estilos para el launcher (botón de inicio del chat) */
 .vfrc-launcher.f6dof81 {
   position: relative;
-  background: var(--_1bof89n4);
+  background: #000000; /* Negro */
   border: none;
   border-radius: 50%;
   width: 60px;
@@ -28,7 +28,7 @@
 }
 
 .vfrc-launcher.f6dof81:hover {
-  background: var(--_1bof89n5);
+  background: #333333; /* Gris oscuro para hover */
   animation: jiggle 0.5s ease-in-out infinite;
 }
 
@@ -44,15 +44,15 @@
   height: 32px;
 }
 
-/* Pseudo-elemento "Chat with us" */
+/* Pseudo-elemento "Chat with us" aparece inmediatamente */
 .vfrc-launcher.f6dof81::after {
   content: "Chat with us";
   display: block;
   position: absolute;
   right: -180px;
   top: 50%;
-  transform: translateX(-100%) translateY(-50%);
-  opacity: 0;
+  transform: translateX(0) translateY(-50%);
+  opacity: 1;
   background-color: white;
   border-radius: 15px;
   padding: 8px 20px;
@@ -60,12 +60,7 @@
   color: #333;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   white-space: nowrap;
-  animation: slideInFromLeft 0.5s ease-out 5s forwards;
-}
-
-.vfrc-launcher.f6dof81:hover::after {
-  background-color: #f7f7f7;
-  color: #555;
+  animation: slideInFromLeft 0.5s ease-out forwards;
 }
 
 /* Animación para el pseudo-elemento */
@@ -156,6 +151,17 @@
   margin-left: 5px;
 }
 
+/* Círculo verde antes del texto "Online" */
+.vfrc-assistant-info--description.dio4eo5::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4af20a; /* Verde */
+  margin-right: 5px;
+}
+
 /* Área de mensajes */
 .vfrc-chat-dialog.s9t60i6 {
   padding: 10px;
@@ -163,7 +169,7 @@
   height: calc(100% - 150px); /* Ajusta según el alto del header y footer */
 }
 
-/* Estilos para los mensajes (puedes personalizar según el diseño deseado) */
+/* Estilos para los mensajes */
 .vfrc-message--assistant {
   background: var(--_1bof89n1);
   border-radius: 10px;
