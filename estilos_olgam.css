@@ -6,11 +6,18 @@
   border-radius: 50%;
   display: inline-block;
   overflow: visible !important; /* Permite que pseudo-elementos sobresalgan */
+  width: 50px;                /* Tamaño fijo para el botón */
+  height: 50px;               /* Tamaño fijo para el botón */
+  display: flex;              /* Usamos flexbox para centrar el ícono */
+  align-items: center;        /* Centrado vertical */
+  justify-content: center;    /* Centrado horizontal */
 }
 
 /* Ícono dentro del botón en blanco (si aplica a SVG) */
 .vfrc-launcher svg {
   fill: #fff;
+  width: 24px;                /* Tamaño fijo para el ícono */
+  height: 24px;               /* Tamaño fijo para el ícono */
 }
 
 /* Círculo verde en la esquina inferior derecha */
@@ -21,9 +28,9 @@
   height: 12px;
   background-color: #28a745; /* verde */
   border-radius: 50%;
-  bottom: -6px;             /* medio dentro, medio fuera del botón */
+  bottom: -6px;
   right: -6px;
-  border: 2px solid #000;   /* un pequeño borde negro para integrarlo al botón */
+  border: 2px solid #000;
 }
 
 /* Mensaje flotante a la derecha del botón */
@@ -35,17 +42,17 @@
   transform: translateY(-50%);
   background: #fff;
   color: #000;
-  padding: 8px 20px;
+  padding: 8px 100px;
   border-radius: 15px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   font-family: sans-serif;
   font-size: 14px;
   white-space: nowrap;
   display: inline-block;
-  opacity: 0;               /* inicia invisible */
-  pointer-events: none;     /* no bloquea clics */
+  opacity: 0;
+  pointer-events: none;
   animation: showBubble 0.5s ease forwards;
-  animation-delay: 3s;      /* aparece a los 5s */
+  animation-delay: 3s;
 }
 
 /* Animación para mostrar el mensaje desde la izquierda */
