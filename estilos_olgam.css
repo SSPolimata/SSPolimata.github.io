@@ -1,68 +1,71 @@
-/* Estilo del botón de chat (circular negro con ícono blanco) */
+/* Botón circular negro */
 .vfrc-launcher {
   position: relative;
   background-color: #000;
-  color: #fff;               /* Asegura texto/ícono en blanco */
-  border-radius: 50%;        /* Hacer el botón circular */
-  overflow: visible !important;  /* Permitir que elementos superpuestos se vean */
-}
-.vfrc-launcher svg {
-  fill: #fff;                /* Si el ícono es SVG, ponerlo en blanco */
+  color: #fff;
+  border-radius: 50%;
+  overflow: visible !important; /* Permite que pseudo-elementos sobresalgan */
 }
 
-/* Burbuja verde de estado (esquina inferior izquierda del botón) */
+/* Ícono dentro del botón en blanco (si aplica a SVG) */
+.vfrc-launcher svg {
+  fill: #fff;
+}
+
+/* Círculo verde en la esquina inferior derecha */
 .vfrc-launcher::after {
   content: "";
   position: absolute;
   width: 12px;
   height: 12px;
-  background-color: #28a745; /* Color verde para estado online */
+  background-color: #28a745; /* verde */
   border-radius: 50%;
-  bottom: -6px;
-  left: -6px;               /* Colocar la burbuja superpuesta al borde inf. izq. */
-  /* (La burbuja queda medio dentro y medio fuera del botón, sin recortarse) */
+  bottom: -6px;             /* medio dentro, medio fuera del botón */
+  right: -6px;
+  border: 2px solid #000;   /* un pequeño borde negro para integrarlo al botón */
 }
 
-/* Mensaje flotante "Chat with us 👋" que aparece a la izquierda del botón */
+/* Mensaje flotante a la derecha del botón */
 .vfrc-launcher::before {
   content: "Chat with us 👋";
   position: absolute;
   top: 50%;
-  right: calc(100% + 10px);  /* Situar a la izquierda del botón, con margen */
+  left: calc(100% + 12px);  /* justo a la derecha del botón */
   transform: translateY(-50%);
   background: #fff;
   color: #000;
   padding: 8px 12px;
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  font-family: sans-serif;   /* Tipografía simple */
+  font-family: sans-serif;
   font-size: 14px;
   white-space: nowrap;
-  opacity: 0;                /* Inicialmente oculto */
-  pointer-events: none;      /* No interferir con clics (el clic pasa al botón) */
+  opacity: 0;               /* inicia invisible */
+  pointer-events: none;     /* no bloquea clics */
   animation: showBubble 0.5s ease forwards;
-  animation-delay: 5s;       /* Aparecer a los 5 segundos */
+  animation-delay: 5s;      /* aparece a los 5s */
 }
 
-/* Animación para hacer aparecer el mensaje desde la izquierda */
+/* Animación para mostrar el mensaje desde la izquierda */
 @keyframes showBubble {
   from {
     opacity: 0;
-    transform: translateY(-50%) translateX(-20px);  /* inicia un poco más a la izq. */
+    transform: translate(-20px, -50%);
   }
   to {
     opacity: 1;
-    transform: translateY(-50%) translateX(0);      /* termina en posición final */
+    transform: translate(0, -50%);
   }
 }
 
-/* Animación de "jiggle" (sacudida) al hacer hover sobre el botón */
+/* Animación "jiggle" al hover */
 .vfrc-launcher:hover {
   animation: jiggle 0.3s ease-in-out;
 }
+
 @keyframes jiggle {
   0%, 100% { transform: rotate(0deg); }
-  25%     { transform: rotate(-5deg); }
-  50%     { transform: rotate(5deg); }
-  75%     { transform: rotate(-5deg); }
+  25%      { transform: rotate(-5deg); }
+  50%      { transform: rotate(5deg); }
+  75%      { transform: rotate(-5deg); }
 }
