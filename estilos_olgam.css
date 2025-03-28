@@ -30,31 +30,28 @@
   content: "Chat with us 👋";
   position: absolute;
   top: 50%;
-  left: calc(100% + 12px);  /* justo a la derecha del botón */
+  left: 100%;
   transform: translateY(-50%);
+  margin-left: 8px;
   background: #fff;
-  color: #000;
+  color: #333;
   padding: 8px 12px;
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  font-family: sans-serif;
-  font-size: 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   white-space: nowrap;
-  opacity: 0;               /* inicia invisible */
-  pointer-events: none;     /* no bloquea clics */
-  animation: showBubble 0.5s ease forwards;
-  animation-delay: 5s;      /* aparece a los 5s */
+  width: auto;
+  opacity: 0;
+  animation: slideInFromLeft 0.4s ease-out forwards;
 }
 
-/* Animación para mostrar el mensaje desde la izquierda */
-@keyframes showBubble {
-  from {
+@keyframes slideInFromLeft {
+  0% {
     opacity: 0;
-    transform: translate(-20px, -50%);
+    transform: translateY(-50%) translateX(-20px);
   }
-  to {
+  100% {
     opacity: 1;
-    transform: translate(0, -50%);
+    transform: translateY(-50%) translateX(0);
   }
 }
 
