@@ -7,42 +7,33 @@
 .vfrc-launcher::before {
   content: "Chat with us 👋";
   position: absolute;
-  left: calc(100% + 10px);  /* Acomoda el globo a la derecha del botón */
+  left: 100%;
   top: 50%;
   transform: translateY(-50%);
-  
-  /* Ajuste automático al contenido */
-  display: inline-block;
-  width: auto;
-  white-space: nowrap;
-
-  /* Estilos visuales */
-  font-size: 16px;          /* Ajusta según tu preferencia */
-  line-height: 1.4;         /* Evita recortes verticales */
-  padding: 8px 12px;
-  border-radius: 8px;
-  background: #fff;
-  color: #000;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  opacity: 0;
-  pointer-events: none;     /* No bloquear clics sobre el botón */
-  z-index: 9999;            /* Para que quede por encima de otros elementos */
-
-  /* Animación de aparición */
+  margin-left: 8px;               /* separa el globo del botón */
+  display: inline-block;          /* ajusta el ancho al contenido */
+  white-space: nowrap;            /* evita que el texto se divida en varias líneas */
+  padding: 8px 12px;              /* espacio interno alrededor del texto */
+  border-radius: 8px;             /* bordes redondeados del globo */
+  background: #fff;               /* fondo blanco */
+  color: #000;                    /* color de texto (negro, por ejemplo) */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* sombra suave */
+  opacity: 0;                     /* inicialmente invisible */
   animation: slideInFromLeft 0.4s ease forwards;
-  animation-delay: 5s; /* Aparece a los 5s */
+  animation-delay: 5s;            /* esperar 5 segundos antes de animar */
 }
 
 @keyframes slideInFromLeft {
-  0% {
+  from {
     opacity: 0;
-    transform: translate(-10px, -50%);
+    transform: translateY(-50%) translateX(-10px); /* empieza ligeramente a la izquierda */
   }
-  100% {
+  to {
     opacity: 1;
-    transform: translate(0, -50%);
+    transform: translateY(-50%) translateX(0);     /* termina en posición alineada */
   }
 }
+
 
 
 
