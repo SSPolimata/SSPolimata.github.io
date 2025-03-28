@@ -1,88 +1,138 @@
-/* ANIMACIONES MEJORADAS */
+/* ANIMACIONES */
 @keyframes slideInFromLeft {
   0% {
-    transform: translateX(-100%) translateY(-50%);
+    transform: translateX(-30px) translateY(-50%);
     opacity: 0;
   }
   100% {
-    transform: translateX(-115%) translateY(-50%);
+    transform: translateX(0) translateY(-50%);
     opacity: 1;
   }
 }
 
 @keyframes jiggle {
   0%, 100% { transform: translate(0,0) scale(1); }
-  25% { transform: translate(-3px,-3px) rotate(-3deg) scale(1.05); }
-  75% { transform: translate(3px,3px) rotate(3deg) scale(0.97); }
+  25% { transform: translate(-3px,-3px) rotate(-2deg) scale(1.05); }
+  75% { transform: translate(2px,2px) rotate(2deg) scale(0.98); }
 }
 
-/* CONTENEDOR PRINCIPAL */
+/* ESTRUCTURA PRINCIPAL */
+._1wkq7nf0 {
+  overflow: visible !important;
+}
+
 ._1wkq7nf9 {
   position: relative !important;
   overflow: visible !important;
-  transform: none !important;
 }
 
-/* BOTÓN NEGRO CON PUNTO VERDE */
-.f6dof81 .f6dof86 {
-  background: #000 !important;
+/* BOTÓN PRINCIPAL */
+.f6dof81 {
+  background: #000000 !important;
   border-radius: 50% !important;
-  transform: scale(1);
-  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: none !important;
+}
+
+.f6dof81 .f6dof86 {
+  background: transparent !important;
 }
 
 /* PUNTO VERDE DE ESTADO */
-._1wkq7nf9:after {
+._1wkq7nf9::after {
   content: '';
   position: absolute !important;
-  bottom: 8px !important;
-  right: 8px !important;
+  bottom: 5px !important;
+  right: 5px !important;
   width: 12px !important;
   height: 12px !important;
-  border-radius: 50% !important;
   background: #4af20a !important;
+  border-radius: 50% !important;
   border: 2px solid #fff !important;
   z-index: 1000 !important;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
 }
 
-/* TOOLTIP EXTERNO "CHAT WITH US" */
+/* TOOLTIP "CHAT WITH US" */
 .f6dof81::after {
   content: "Chat with us" !important;
-  position: fixed !important; /* Cambiado a fixed para posición absoluta */
-  right: calc(100% + 20px) !important; /* Posiciona a la izquierda del botón */
+  position: fixed !important;
+  right: calc(100% + 25px) !important;
   top: 50% !important;
   transform: translateY(-50%) !important;
   opacity: 0 !important;
-  background: #fff !important;
+  background: #ffffff !important;
   border-radius: 25px !important;
   padding: 10px 25px !important;
   font-size: 14px !important;
   color: #1a1a1a !important;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15) !important;
   font-family: 'Open Sans', sans-serif !important;
   font-weight: 600 !important;
-  animation: slideInFromLeft 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28) 5s forwards !important;
+  animation: slideInFromLeft 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 5s forwards !important;
   pointer-events: none !important;
   z-index: 9999 !important;
   white-space: nowrap !important;
-  width: max-content !important;
 }
 
 /* HOVER EFFECTS */
 .f6dof81:hover {
   animation: jiggle 0.5s ease-in-out infinite !important;
-  transform: scale(1.03) !important;
+  transform: scale(1.05) !important;
 }
 
 .f6dof81:hover::after {
   background: #f8f8f8 !important;
   color: #000 !important;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.25) !important;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2) !important;
 }
 
-/* ASEGURAR VISIBILIDAD */
+/* CHAT CONTAINER */
+._1wkq7nf3._1wkq7nf6 {
+  border-radius: 20px !important;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.15) !important;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  overflow: hidden !important;
+  transform: translateY(0) !important;
+}
+
+/* HEADER DEL CHAT */
+.vfrc-header.jyiuei2 {
+  background: #4551ED !important;
+  padding: 18px 24px !important;
+}
+
+.vfrc-header--title.jyiuei4 {
+  color: #fff !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+}
+
+/* INPUT MENSAJE */
+.vfrc-chat-input._1gdvh9t6 {
+  border-radius: 15px !important;
+  padding: 14px 20px !important;
+  font-size: 15px !important;
+  border: 1px solid #e2e8f0 !important;
+  margin: 10px !important;
+}
+
+/* BOTÓN ENVIAR */
+#vfrc-send-message {
+  background: #4551ED !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  transition: all 0.2s ease !important;
+  margin: 10px !important;
+}
+
+#vfrc-send-message:hover {
+  background: #3743db !important;
+  transform: scale(0.96) !important;
+}
+
+/* CORRECCIÓN DE Z-INDEX */
 .vfrc-widget--launcher {
-  overflow: visible !important;
-  transform: none !important;
+  z-index: 99999 !important;
 }
