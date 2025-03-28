@@ -1,70 +1,4 @@
-/* Definimos las variables CSS en el contenedor raíz del widget para consistencia */
-.vfrc-widget._1wkq7nf0._1wkq7nf2 {
-  --_1bof89n0: #E8E9FD; /* Fondo claro */
-  --_1bof89n1: #D1D3FA; /* Fondo mensajes asistente */
-  --_1bof89n2: #A2A8F6; /* Bordes y detalles */
-  --_1bof89n3: #747CF1; /* Fondo mensajes usuario */
-  --_1bof89n4: #4551ED; /* Color principal (botones, encabezado) */
-  --_1bof89n5: #8E95F4; /* Hover en botones */
-  --_1bof89n6: #747AC9; /* Tono secundario */
-  --_1bof89n7: #6064A5; /* Texto secundario */
-  --_1bof89n8: #4B4F83; /* Sombra */
-  --_1bof89n9: #393B61; /* Texto oscuro */
-  --_1bof89na: "_1568gyg0", "Open Sans", "Arial", "sans-serif"; /* Fuentes */
-  font-family: var(--_1bof89na);
-}
-
-/* Estilos para el launcher (botón de inicio del chat) */
-.vfrc-launcher.f6dof81 {
-  position: relative;
-  background: #000000; /* Negro */
-  border: none;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease;
-}
-
-.vfrc-launcher.f6dof81:hover {
-  background: #333333; /* Gris oscuro para hover */
-  animation: jiggle 0.5s ease-in-out infinite;
-}
-
-/* Icono dentro del launcher */
-.f6dof86.f6dof88 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.f6dof86.f6dof88 img {
-  width: 32px;
-  height: 32px;
-}
-
-/* Pseudo-elemento "Chat with us" aparece inmediatamente */
-.vfrc-launcher.f6dof81::after {
-  content: "Chat with us";
-  display: block;
-  position: absolute;
-  left: -180px; /* Cambiamos right por left para que aparezca a la izquierda */
-  top: 50%;
-  transform: translateX(0) translateY(-50%);
-  opacity: 1;
-  background-color: white;
-  border-radius: 15px;
-  padding: 8px 20px;
-  font-size: 17px;
-  color: #333;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  white-space: nowrap;
-  animation: slideInFromLeft 0.5s ease-out forwards;
-  z-index: 100; /* Aseguramos que el texto esté por encima de otros elementos */
-}
-
-/* Definimos la animación para que el texto se deslice desde la izquierda */
+/* Animaciones */
 @keyframes slideInFromLeft {
   0% {
     transform: translateX(-100%) translateY(-50%);
@@ -76,202 +10,107 @@
   }
 }
 
-/* Animación de jiggle para el launcher */
 @keyframes jiggle {
   0%, 100% {
-    transform: translateX(0) scale(1);
+    transform: translate(0, 0) scale(1);
   }
   25% {
-    transform: translateX(-5px) scale(1.05);
+    transform: translate(-5px, -5px) scale(1.05);
   }
   75% {
-    transform: translateX(5px) scale(0.95);
+    transform: translate(5px, 5px) scale(0.95);
   }
 }
 
-/* Estilos para la ventana del chat */
-._1wkq7nf3._1wkq7nf6 {
-  position: fixed;
-  bottom: 97px;
-  left: 33px;
-  height: calc(100% - 117px);
-  width: 350px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+/* Estilos para el launcher */
+._1wkq7nf9:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #4af20a;
+    z-index: 999;
 }
 
-/* Encabezado del chat */
+/* Tooltip "Chat with us" */
+.vfrc-launcher.f6dof81::after {
+  content: "Chat with us ";
+  position: absolute;
+  right: -180px;
+  top: 50%;
+  transform: translateX(-100%) translateY(-50%);
+  opacity: 0;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 8px 20px;
+  font-size: 14px;
+  color: #2d3748;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  font-family: 'Open Sans', Arial, sans-serif;
+  animation: slideInFromLeft 0.5s ease-out 5s forwards;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Animación al hacer hover */
+.vfrc-launcher.f6dof81:hover {
+  animation: jiggle 0.5s ease-in-out infinite;
+}
+
+.vfrc-launcher.f6dof81:hover::after {
+  background: #f8fafc;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+/* Mejoras generales del chat */
+.vfrc-chat.s9t60i0 {
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
 .vfrc-header.jyiuei2 {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  background: var(--_1bof89n4);
-  color: white;
-}
-
-.vfrc-avatar.g931q10 {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
+  background: #4551ED;
+  padding: 1rem;
+  border-radius: 16px 16px 0 0;
 }
 
 .vfrc-header--title.jyiuei4 {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.vfrc-header--button.jyiuei7 {
-  background: none;
-  border: none;
   color: white;
-  cursor: pointer;
-  margin-left: auto;
-}
-
-/* Área de información del asistente */
-.vfrc-assistant-info.dio4eo2 {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid var(--_1bof89n2);
-}
-
-.vfrc-assistant-info--title.dio4eo4 {
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--_1bof89n9);
-  margin-left: 10px;
-}
-
-.vfrc-assistant-info--description.dio4eo5 {
-  font-size: 14px;
-  color: var(--_1bof89n7);
-  margin-left: 5px;
-}
-
-/* Círculo verde antes del texto "Online" */
-.vfrc-assistant-info--description.dio4eo5::before {
-  content: '';
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #4af20a; /* Verde */
-  margin-right: 5px;
-}
-
-/* Área de mensajes */
-.vfrc-chat-dialog.s9t60i6 {
-  padding: 10px;
-  overflow-y: auto;
-  height: calc(100% - 150px); /* Ajusta según el alto del header y footer */
-}
-
-/* Estilos para los mensajes */
-.vfrc-message--assistant {
-  background: var(--_1bof89n1);
-  border-radius: 10px;
-  padding: 10px;
-  margin: 5px 0;
-  max-width: 80%;
-}
-
-.vfrc-message--user {
-  background: var(--_1bof89n3);
-  border-radius: 10px;
-  padding: 10px;
-  margin: 5px 0;
-  max-width: 80%;
-  align-self: flex-end;
-  color: white;
-}
-
-/* Pie de página (input y botones) */
-.vfrc-footer._1vj16242 {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  background: var(--_1bof89n0);
-  border-top: 1px solid var(--_1bof89n2);
-}
-
-.vfrc-input-container._1gdvh9t1 {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
 .vfrc-chat-input._1gdvh9t6 {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--_1bof89n2);
-  border-radius: 5px;
-  resize: none;
-  font-family: var(--_1bof89na);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 14px;
 }
 
-.vfrc-button._1gdvh9ta {
-  background: var(--_1bof89n4);
-  border: none;
-  border-radius: 5px;
-  padding: 8px;
-  margin-left: 5px;
-  cursor: pointer;
-  color: white;
+/* Botones mejorados */
+#vfrc-send-message {
+  background: #4551ED;
+  border-radius: 8px;
+  transition: all 0.2s ease;
 }
 
-.vfrc-button._1gdvh9ta:hover {
-  background: var(--_1bof89n5);
+#vfrc-send-message:hover {
+  background: #3743db;
+  transform: scale(0.95);
 }
 
-/* Botón "Start new chat" */
-.vfrc-button._1q15b0b4 {
-  background: var(--_1bof89n4);
-  color: white;
+#vfrc-start-chat {
+  background: #4551ED;
+  border-radius: 8px;
   padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.vfrc-button._1q15b0b4:hover {
-  background: var(--_1bof89n5);
-}
-
-/* Botón de cancelar en el prompt */
-.vfrc-button._1q15b0b3 {
-  background: #ccc;
-  color: #333;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.vfrc-button._1q15b0b3:hover {
-  background: #bbb;
-}
-
-/* Overlay (si aplica) */
-.vfrc-chat--overlay._5x612k3 {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  display: none; /* Activar con JS si es necesario */
-}
-
-/* Prompt (si aplica) */
-.vfrc-prompt._5x612k0 {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
+#vfrc-start-chat:hover {
+  background: #3743db;
 }
